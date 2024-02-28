@@ -1,4 +1,5 @@
-<article>
+<article class="<%= 'sold-out' if product.quantity.zero? %>">
+  
   <%= link_to product_path(product) do %>
     <%= image_tag product.image.thumb.url , alt: product.name %>
     <h1>
@@ -6,10 +7,17 @@
       <span><%= humanized_money_with_symbol product.price %></span>
     </h1>
   <% end%>
+
+  <% if product.quantity.zero? %>
+    <div >
+      <span class="soldout">Sold Out</span>
+    </div>
+  <% else %>
   <div>
     <%= button_to add_item_cart_path(product_id: product.id), class: 'btn' ,
     method: :post do %>
       <%= fa_icon "shopping-cart", text: 'Add' %> 
     <% end %>
   </div>
+  <% end %>
 </article>
