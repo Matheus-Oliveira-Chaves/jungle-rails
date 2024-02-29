@@ -8,6 +8,51 @@
     <h4>Thank you for your order!</h4>
   </div>
 
+  <div class="order-details panel panel-default">
+    <table class="table table-bordered">
+      <thead>
+        <tr>
+          <th>Product</th>
+          <th>Image</th>
+          <th>Description</th>
+          <th>Quantity</th>
+          <th>Item Total</th>
+        </tr>
+      </thead>
+      <tbody>
+        <% @order.line_items.each do |line_item| %>
+          <tr>
+            <td><%= line_item.product.name %></td>
+            <td><%= image_tag line_item.product.image.thumb.url, alt: line_item.product.name %></td>
+            <td><%= line_item.product.description %></td>
+            <td><%= line_item.quantity %></td>
+            <td><%= humanized_money_with_symbol line_item.total_price_cents / 100.0 %></td>
+          </tr>
+        <% end %>
+      </tbody>
+      <tfoot>
+        <tr>
+          <th colspan="4">
+            FINAL AMOUNT:
+          </th>
+          <th>
+            <%= humanized_money_with_symbol @order.total_cents / 100.0 %>
+          </th>
+        </tr>
+        <tr>
+          <th colspan="5">
+            EMAIL USED:
+          </th>
+        </tr>
+        <tr>
+          <td colspan="5">
+            <%= @order.email %>
+          </td>
+        </tr>
+      </tfoot>
+    </table>
+  </div>
+
   <%= link_to "Continue Shopping", root_path, class: 'btn btn-lg btn-primary' %>
 
 </section>
