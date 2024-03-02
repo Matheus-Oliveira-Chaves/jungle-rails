@@ -31,11 +31,11 @@
       </ul>
 
       <ul class="navbar-nav">
-        <% if current_user %>
-          <!-- If user is logged in -->
+         <% if current_user && current_user.admin? %>
           <li class="nav-item dropdown">
             <a class="nav-link dropdown-toggle text-danger" href="#" id="navbarDropdownAdmin" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-              <%= current_user.email %>
+            Admin  
+            
             </a>
             <ul class="dropdown-menu dropdown-menu-dark">
               <li><%= link_to 'Dashboard', [:admin, :root], class: "nav-link" %></li>
@@ -44,6 +44,16 @@
               <li><%= link_to 'Logout', logout_path, method: :delete, class: 'nav-link' %></li>
             </ul>
           </li>
+        <% elsif%>
+        <% if current_user %>
+        <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle text-danger" href="#" id="navbarDropdownAdmin" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+            <%= current_user.email %>
+            </a>
+            <ul class="dropdown-menu dropdown-menu-dark">
+              <li><%= link_to 'Logout', logout_path, method: :delete, class: 'nav-link' %></li>
+            </ul>
+          </li>  
         <% else %>
           <!-- If user is not logged in -->
           <li class="nav-item">
@@ -82,3 +92,4 @@
   title.addEventListener("dblclick", gnr);
 })();
 </script>
+<% end %>
