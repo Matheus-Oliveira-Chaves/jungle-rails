@@ -3,10 +3,10 @@ class SessionsController < ApplicationController
   end
 
   def create
-    username = params[:username]
+    email = params[:email]
     password = params[:password]
 
-    if admin_credentials?(username, password)
+    if admin_credentials?(email, password)
       session[:admin_user] = true
       redirect_to admin_dashboard_path, notice: 'Logged in as admin!'
     else
@@ -29,7 +29,7 @@ class SessionsController < ApplicationController
 
   private
 
-  def admin_credentials?(username, password)
-    username == ENV['ADMIN_USERNAME'] && password == ENV['ADMIN_PASSWORD']
+  def admin_credentials?(email, password)
+    email == ENV['ADMIN_EMAIL'] && password == ENV['ADMIN_PASSWORD']
   end
 end
