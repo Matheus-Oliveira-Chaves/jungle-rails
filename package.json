@@ -1,38 +1,5 @@
 {
-  "name": "new",
-  "private": true,
-  "dependencies": {
-    "@rails/actioncable": "^6.0.0",
-    "@rails/activestorage": "^6.0.0",
-    "@rails/ujs": "^6.0.0",
-    "@rails/webpacker": "5.4.0",
-    "turbolinks": "^5.2.0",
-    "webpack": "^4.46.0",
-    "webpack-cli": "^3.3.12"
-  },
-  "version": "0.1.0",
   "devDependencies": {
-    "cypress": "^13.6.6",
-    "webpack-dev-server": "^5.0.2"
-  },
-  "description": "A mini e-commerce application built with Rails 6.1 for purposes of teaching Rails by example.",
-  "main": "babel.config.js",
-  "directories": {
-    "lib": "lib",
-    "test": "test"
-  },
-  "scripts": {
-    "cypress:open": "cypress open",
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/Matheus-Oliveira-Chaves/jungle-rails.git"
-  },
-  "author": "",
-  "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/Matheus-Oliveira-Chaves/jungle-rails/issues"
-  },
-  "homepage": "https://github.com/Matheus-Oliveira-Chaves/jungle-rails#readme"
+    "cypress": "^9.7.0"
+  }
 }
